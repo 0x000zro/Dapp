@@ -1,0 +1,427 @@
+/* Base Styles */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --light-background: #f0f3f4;
+    --dark-background: #2c3e50;
+    --text-color: #34495e;
+    --light-text-color: #ecf0f1;
+    --border-radius: 10px;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --neon-glow: 0 0 10px rgba(52, 152, 219, 0.7);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Futura', 'Open Sans', sans-serif;
+    line-height: 1.8;
+    background: var(--light-background);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body.dark-mode {
+    background: var(--dark-background);
+    color: var(--light-text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    color: var(--light-text-color);
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: var(--neon-glow);
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    margin: 0 0.5rem;
+}
+
+nav ul li a, nav ul li button {
+    color: var(--light-text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--neon-glow);
+    background: var(--secondary-color);
+}
+
+/* Mobile Nav */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: var(--light-text-color);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+}
+
+/* Hero and Sections */
+.hero, .about, .features, .roadmap, .staking, .team, .faq, .uniswap {
+    padding: 2rem;
+    background: var(--light-text-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero:hover, .about:hover, .features:hover, .roadmap:hover, .staking:hover, .team:hover, .faq:hover, .uniswap:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.hero img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--neon-glow);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Account Section */
+#account, #balance {
+    font-size: 1.4em;
+    margin-top: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Staking Form */
+#stakingForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#stakingForm input {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 5px var(--secondary-color);
+    transition: box-shadow 0.3s;
+}
+
+#stakingForm input:focus {
+    box-shadow: inset 0 0 10px var(--secondary-color);
+}
+
+#stakingForm button {
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--neon-glow);
+}
+
+#stakingForm button:hover {
+    background: hsl(158, 88%, 38%);
+    transform: scale(1.05);
+}
+
+.help-text {
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#darkModeToggle:hover {
+    transform: rotate(360deg);
+}
+
+/* Uniswap Iframe */
+#uniswap-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer .social-media a {
+    color: var(--light-text-color);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+footer .social-media a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: var(--light-text-color);
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear, transform 0.3s ease;
+    box-shadow: var(--neon-glow);
+}
+
+#back-to-top.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+/* Dark Mode Specifics */
+body.dark-mode .hero, body.dark-mode .about, body.dark-mode .features, 
+body.dark-mode .roadmap, body.dark-mode .staking, body.dark-mode .team, 
+body.dark-mode .faq, body.dark-mode .uniswap {
+    background: #34495e;
+}
+
+body.dark-mode #stakingForm input {
+    background: #566573;
+    color: var(--light-text-color);
+    border-color: var(--secondary-color);
+}
+
+body.dark-mode #stakingForm button {
+    background: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
+/* Assuming these styles are added to your existing style.css */
+
+/* Custom styles for the referral dashboard */
+.referral-info, .referral-form, .referral-leaderboard {
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.referral-info h2, .referral-form h2, .referral-leaderboard h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Styling for referral stats */
+#referralStats {
+    margin-bottom: 20px;
+}
+
+#referralStats p {
+    font-size: 1.1em;
+}
+
+#referralStats strong {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Button for copying referral code */
+#copyReferralCode {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#copyReferralCode:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Styling for the referral link section */
+.referral-link {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.referral-link input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-right: 10px;
+}
+
+.referral-link button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.referral-link button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Leaderboard styling */
+#leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#leaderboard th, #leaderboard td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#leaderboard th {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+}
+
+#leaderboard tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#leaderboard tr:hover {
+    background-color: #e6e6e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .referral-link {
+        flex-direction: column;
+    }
+
+    .referral-link input {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
