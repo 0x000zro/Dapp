@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$RUPE Referral Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <h1>$RUPE - The Meme Coin</h1>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+                <ul id="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="referral.html" class="active">Referral</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#staking">Staking</a></li>
+                    <!-- Add other navigation links here -->
+                    <li><button id="connectButton">Connect Wallet</button></li>
+                    <li><button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Referral Dashboard</h1>
+            <p>Welcome to your $RUPE Referral Dashboard. Here you can manage your referrals and see your rewards.</p>
+
+            <section class="referral-info">
+                <h2>Your Referral Stats</h2>
+                <div id="referralStats">
+                    <p><strong>Your Referral Code:</strong> <span id="referralCode"></span></p>
+                    <p><strong>Referrals:</strong> <span id="referralCount">0</span></p>
+                    <p><strong>Rewards:</strong> <span id="referralRewards">0 $RUPE</span></p>
+                </div>
+                <button id="copyReferralCode" onclick="copyToClipboard()">Copy Referral Code</button>
+            </section>
+
+            <section class="referral-form">
+                <h2>Share Your Referral Link</h2>
+                <div class="referral-link">
+                    <input type="text" id="referralLink" readonly value="URL.com/?ref=YOURCODE">
+                    <button onclick="copyLinkToClipboard()">Copy Link</button>
+                </div>
+            </section>
+
+            <section class="referral-leaderboard">
+                <h2>Referral Leaderboard</h2>
+                <table id="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Referrals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Leaderboard data would be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 $RUPE. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+                <a href="https://discord.com/yourprofile" target="_blank">Discord</a>
+                <a href="https://telegram.org/yourprofile" target="_blank">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="scripts/referral.js" defer></script>
+</body>
+</html>
